@@ -52,9 +52,9 @@ db:
 
   # Mysql instance configurations
   host: ${TELETRAAN_DB_HOST:-localhost}
-  port: 3306
-  userName: root
-  password:
+  port: ${TELETRAAN_DB_POST:-3306}
+  userName: ${TELETRAAN_DB_USER:-root}
+  password: ${TELETRAAN_DB_PASSWORD:-password}
 
   # Connection pool size string, in the format of
   # initialSize:maxActive:maxIdle:minIdle.
