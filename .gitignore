@@ -1,7 +1,9 @@
 # ignore install specific teletraan dir
 deploy-board/teletraan/
-deploy-service/teletraanservice/teletraan/
+deploy-board/tmp
 
+deploy-service/teletraanservice/teletraan/
+deploy-service/log
 # IntelliJ files
 .idea/
 *.iml
@@ -61,3 +63,6 @@ MANIFEST
 
 # Virtual Environments
 .venv
+log
+*.log
+tmp
