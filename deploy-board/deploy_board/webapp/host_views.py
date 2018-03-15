@@ -83,9 +83,9 @@ def _get_cloud(json_obj):
 def get_host_details(host_id):
     if not host_id:
         return None
+    return None
     host_url = CMDB_API_HOST + CMDB_INSTANCE_URL + host_id
     response = requests.get(host_url)
-
     try:
         instance = response.json()
     except:
