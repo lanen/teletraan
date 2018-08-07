@@ -1,0 +1,20 @@
+version: '2'
+services:
+  deploy-service:
+    build: ./teletraanservice
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    command: "/opt/deploy-service/teletraanservice/bin/run.sh -c /opt/deploy-service/teletraanservice/bin/server.yaml"
+    environment:
+      - TELETRAAN_DB_HOST=192.168.0.18
+      - TELETRAAN_DB_POST=3306
+      - TELETRAAN_DB_USER=evan
+      - TELETRAAN_DB_PASSWORD=dev
+      - TELETRAAN_DASHBOARD_URL=http://board.oa.com
+    volumes: 
+      - ".:/opt/deploy-service"
+      - "./log:/tmp/teletraan/"
+    extra_hosts:
+      board.oa.com: 192.168.0.18
+      deploy.oa.com: 192.168.0.18
