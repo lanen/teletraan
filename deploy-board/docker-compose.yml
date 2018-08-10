@@ -6,7 +6,7 @@ services:
       - "8888:8888"
     #command: "python /opt/deploy-board/manage.py runserver 0.0.0.0:8888"
     command: "/usr/local/bin/uwsgi --ini /opt/deploy-board/uwsgi.ini"
-    volumes: 
+    volumes:
       - ".:/opt/deploy-board"
       - "./tmp/deploy_board:/tmp/deploy_board"
     environment:
@@ -24,6 +24,6 @@ services:
       - ENABLING_SERVICE_RATELIMIT_URL=
       - KAFKA_MSGS_DELIVERED_METRIC=
     extra_hosts:
-      - 'board.oa.com:192.168.0.18'
-      - 'deploy.oa.com:192.168.0.18'
+      - 'board.oa.com:192.168.90.150'
+      - 'deploy.oa.com:192.168.90.150'
 

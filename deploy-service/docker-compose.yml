@@ -16,5 +16,5 @@ services:
       - ".:/opt/deploy-service"
       - "./log:/tmp/teletraan/"
     extra_hosts:
-      board.oa.com: 192.168.0.18
-      deploy.oa.com: 192.168.0.18
+      board.oa.com: 192.168.90.150
+      deploy.oa.com: 192.168.90.150
