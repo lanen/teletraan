@@ -13,7 +13,6 @@ services:
       - TELETRAAN_SERVICE_URL=http://deploy-service:8080
     depends_on:
       - deploy-service
-
   deploy-service:
     build: ./deploy-service/teletraanservice
     ports:
@@ -21,22 +20,22 @@ services:
       - "8081:8081"
     command: "/opt/deploy-service/teletraanservice/bin/run.sh -c /opt/deploy-service/teletraanservice/bin/server.yaml"
     environment:
-      - TELETRAAN_DB_HOST=mysql
+      - TELETRAAN_DB_HOST=deploy-mysql
+      - TELETRAAN_DB_PASSWORD=
       - TELETRAAN_DASHBOARD_URL=http://deploy-board:8888
     volumes: 
       - "./deploy-service:/opt/deploy-service"
     depends_on:
-      - mysql
-
-  mysql:
+      - deploy-mysql
+  deploy-mysql:
     image: mysql:5.5
     ports:
       - "3306:3306"
-    container_name: teletraan_mysql
+    container_name: "deploy-mysql"
     volumes:
       - "/tmp/.data/deploydb:/var/lib/mysql"
       - "./deploy-service/common/src/main/resources/sql:/var/teletraan/sql"
       - "./tools/mysql:/var/teletraan/tools"
     environment:
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: "123456"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
