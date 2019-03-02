@@ -13,7 +13,7 @@ services:
       - PYTHONPATH=/opt/deploy-board/
       - SECRET_KEY=huang
       - LOG_DIR=/tmp/deploy_board
-      - TELETRAAN_SERVICE_URL=http://deploy.oa.com
+      - TELETRAAN_SERVICE_URL=http://host.docker.internal:8888
       - TELETRAAN_SERVICE_VERSI=v1
       - DASHBOARD_URL_ENDPOINT_FORMAT=
       - CMDB_API_HOST=
