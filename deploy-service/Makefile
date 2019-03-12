@@ -5,3 +5,8 @@ docker:
 	version=0.1-SNAPSHOT; \
 	docker build -t $${name}:$${version} .; \
 	docker tag $${name}:$${version} $${name}:latest
+upload: docker
+	name=deploy-service; \
+	version=0.1-SNAPSHOT; \
+	docker tag $${name}:$${version} registry.cn-shenzhen.aliyuncs.com/jiayi/deploy-service:$${version} ; \
+	docker push registry.cn-shenzhen.aliyuncs.com/jiayi/deploy-service:$${version}
