@@ -4,10 +4,10 @@
 set -e
 
 # Set defaults
-HOST=
+HOST=10.211.55.3
 PORT=
 USER=root
-PASSWORD=
+PASSWORD=huang
 DATABASE=deploy
 CURRENT_VERSION=
 TARGET_VERSION=

@@ -1,4 +1,4 @@
-From java:8
+From openjdk:8-jre-alpine
 
 ENV PROJECT_DIR=/opt/deploy-service
 

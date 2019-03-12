@@ -4,10 +4,10 @@
 set -e
 
 # Set defaults
-HOST=
+HOST=10.211.55.3
 PORT=
 USER=root
-PASSWORD=
+PASSWORD=huang
 SQLFILE=/var/teletraan/sql/deploy.sql
 DRYRUN=false
 
