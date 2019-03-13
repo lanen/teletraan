@@ -3,10 +3,10 @@
 
 from fabric.api import *
 
-env.hosts = ['root@192.168.0.105']
+env.hosts = ['root@10.211.55.4']
 
 env.user = 'root'
-env.password = '123456'
+env.password = 'dev'
 
 
 def build():
