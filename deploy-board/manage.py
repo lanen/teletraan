@@ -40,7 +40,21 @@ if __name__ == "__main__":
     #
     # OAuth based authentication settings. By default, OAuth based authentication is disabled
     #
-    os.environ.setdefault("OAUTH_ENABLED", "OFF")
+    os.environ.setdefault("OAUTH_ENABLED", "ON")
+    os.environ.setdefault("OAUTH_ACCESS_TOKEN_URL",
+                          "http://localhost:9999/oauth/token")
+    os.environ.setdefault("OAUTH_AUTHORIZE_URL",
+                          "http://localhost:9999/oauth/authorize")
+    os.environ.setdefault("OAUTH_CLIENT_ID",
+                          'web_app')
+    os.environ.setdefault("OAUTH_CLIENT_SECRET", 'changeit')
+    os.environ.setdefault("OAUTH_CALLBACK", 'http://localhost:8000/auth')
+    os.environ.setdefault("OAUTH_DEFAULT_SCOPE", "openid")
+    os.environ.setdefault("OAUTHLIB_INSECURE_TRANSPORT", "1")
+    os.environ.setdefault("OAUTH_USER_INFO_URI",
+                          'http://localhost:9999/api/userinfo')
+    os.environ.setdefault("OAUTH_USERNAME_INFO_KEY",
+                          'login')
 
     # Uncomment the following to turn on oauth authentication. Make sure to enable authentication,
     # and possibly authorization on the backend java Teletraan service as well. See Teletraan doc for more details.

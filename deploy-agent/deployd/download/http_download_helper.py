@@ -54,7 +54,7 @@ class HTTPDownloadHelper(DownloadHelper):
                 log.error('sha1 file does not exist for {}, ignore checksum.'.format(self._url))
                 return error
 
-            sha_value = sha_r.content
+            sha_value = sha_r.content.strip()
             hash_value = self.hash_file(local_full_fn)
             if hash_value != sha_value:
                 log.error('Checksum failed for {}'.format(local_full_fn))

@@ -1,6 +1,7 @@
 # ignore install specific teletraan dir
 deploy-board/teletraan/
 deploy-board/tmp
+deploy-board/venv
 
 deploy-service/teletraanservice/teletraan/
 deploy-service/log

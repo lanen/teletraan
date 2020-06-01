@@ -4,7 +4,7 @@ services:
     build: ./deploy-board
     ports:
       - "8888:8888"
-    command: "python /opt/deploy-board/manage.py runserver 0.0.0.0:8888"
+#    command: "python /opt/deploy-board/manage.py runserver 0.0.0.0:8888"
     volumes: 
       - "../teletraan/deploy-board:/opt/deploy-board"
       - "../tmp/deploy_board:/tmp/deploy_board"
@@ -14,7 +14,8 @@ services:
     depends_on:
       - deploy-service
   deploy-service:
-    build: ./deploy-service/teletraanservice
+#    build: ./deploy-service/
+    image: deploy-service:0.1-SNAPSHOT
     ports:
       - "8080:8080"
       - "8081:8081"
@@ -23,8 +24,8 @@ services:
       - TELETRAAN_DB_HOST=deploy-mysql
       - TELETRAAN_DB_PASSWORD=
       - TELETRAAN_DASHBOARD_URL=http://deploy-board:8888
-    volumes: 
-      - "./deploy-service:/opt/deploy-service"
+#    volumes: 
+#      - "./deploy-service:/opt/deploy-service"
     depends_on:
       - deploy-mysql
   deploy-mysql:

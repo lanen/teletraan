@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 ##########################################################################################
 # 1. The default run.sh and server.yaml are provided mainly for development and demo purpose.
 #    It is highly recommended to create your own run.sh and server.yaml for production use,
@@ -18,6 +18,7 @@ CP=${ROOT_DIR}/*:${ROOT_DIR}/lib/*:${TARGET_DIR}/classes:${TARGET_DIR}/lib/*
 CONFIG_FILE=${ROOT_DIR}/bin/server.yaml
 PID_FILE=${HOME}/teletraan.pid
 ACTION="run"
+echo 'dddddd'
 JAVA_OPTS="-server -Xmx1024m -Xms1024m \
 -verbosegc -Xloggc:/tmp/gc.log -XX:ErrorFile=/tmp/jvm_error.log \
 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintClassHistogram \

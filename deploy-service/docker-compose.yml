@@ -1,7 +1,9 @@
 version: '2'
 services:
   deploy-service:
-    build: ./teletraanservice
+    image: deploy-service:0.1-SNAPSHOT
+    depends_on:
+      - deploy-mysql
     ports:
       - "8080:8080"
       - "8081:8081"
@@ -9,24 +11,19 @@ services:
     environment:
       - TELETRAAN_DB_HOST=deploy-mysql
       - TELETRAAN_DB_POST=3306
-      - TELETRAAN_DB_USER=evan
-      - TELETRAAN_DB_PASSWORD=dev
+      - TELETRAAN_DB_USER=root
+      - TELETRAAN_DB_PASSWORD=huang
       - TELETRAAN_DASHBOARD_URL=http://localhost:8888
     volumes: 
-      - ".:/opt/deploy-service"
       - "./log:/tmp/teletraan/"
-    extra_hosts:
-      board.oa.com: 192.168.90.150
-      deploy.oa.com: 192.168.90.150
   deploy-mysql:
-    image: mysql:5.5
+    image: mysql:5.7
     ports:
       - "3306:3306"
-    container_name: "deploy-mysql"
+#    container_name: "deploy-mysql"
     volumes:
       - "/tmp/.data/deploydb:/var/lib/mysql"
-      - "./common/src/main/resources/sql:/var/teletraan/sql"
-      - "../tools/mysql:/var/teletraan/tools"
+      - ./common/src/main/resources/sql/deploy.sql:/docker-entrypoint-initdb.d/initialize-database.sql
     environment:
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: huang 
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"

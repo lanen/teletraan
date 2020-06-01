@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 ##########################################################################################
 # 1. The default run.sh and server.yaml are provided mainly for development and demo purpose.
 #    It is highly recommended to create your own run.sh and server.yaml for production use,

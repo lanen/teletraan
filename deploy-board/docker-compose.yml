@@ -5,7 +5,7 @@ services:
     ports:
       - "8888:8888"
     #command: "python /opt/deploy-board/manage.py runserver 0.0.0.0:8888"
-    command: "/usr/local/bin/uwsgi --ini /opt/deploy-board/uwsgi.ini"
+    #command: "/usr/local/bin/uwsgi --ini /opt/deploy-board/uwsgi.ini"
     volumes:
       - ".:/opt/deploy-board"
       - "./tmp/deploy_board:/tmp/deploy_board"
@@ -13,7 +13,7 @@ services:
       - PYTHONPATH=/opt/deploy-board/
       - SECRET_KEY=huang
       - LOG_DIR=/tmp/deploy_board
-      - TELETRAAN_SERVICE_URL=http://host.docker.internal:8888
+      - TELETRAAN_SERVICE_URL=http://10.16.18.46:8888
       - TELETRAAN_SERVICE_VERSI=v1
       - DASHBOARD_URL_ENDPOINT_FORMAT=
       - CMDB_API_HOST=
@@ -23,7 +23,4 @@ services:
       - RATELIMIT_ENABLED_METRIC_FORMAT=
       - ENABLING_SERVICE_RATELIMIT_URL=
       - KAFKA_MSGS_DELIVERED_METRIC=
-    extra_hosts:
-      - 'board.oa.com:192.168.90.150'
-      - 'deploy.oa.com:192.168.90.150'
 

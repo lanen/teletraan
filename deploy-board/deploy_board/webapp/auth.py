@@ -27,8 +27,8 @@ except ImportError:
 log = logging.getLogger('oauth')
 STATE_LENGTH = 32
 # Default with Google endpoints
-OAUTH_ACCESS_TOKEN_URL = 'https://auth.pinadmin.com/oauth/token/'
-OAUTH_AUTHORIZE_URL = 'https://auth.pinadmin.com/oauth/authorize/'
+OAUTH_ACCESS_TOKEN_URL = 'https://auth.pinadmin.com/oauth/token'
+OAUTH_AUTHORIZE_URL = 'https://auth.pinadmin.com/oauth/authorize'
 DEFAULT_SCOPE = 'user'
 
 logger = logging.getLogger(__name__)
@@ -276,7 +276,8 @@ class OAuth(object):
     def oauth_data(self, user_info_uri, **kwargs):
         try:
             return self.api_get(user_info_uri, **kwargs)
-        except Exception:
+        except Exception, e:
+            print(e)
             raise OAuthException
 
     def logout(self, **kwargs):
